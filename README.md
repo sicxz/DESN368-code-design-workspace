@@ -1,4 +1,5 @@
 # 🎉 Welcome to DESN368 CODE + DESIGN ONE!
+Travis Masingale 09/24/25
 
 **Welcome to DESN368 Web Design!**  
 You're viewing the instructor's course repository(repo). This serves as your reference and source for all course materials.  
