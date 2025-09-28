@@ -91,8 +91,8 @@ Here’s what’s in your portfolio repository:
 
 ### **Learning Platforms**
 - **📚 Canvas LMS** - [Grades and official submissions](https://canvas.ewu.edu)  
-- **🎨 Figma Team** - [Design projects]([https://www.figma.com/files/team/1487582992593000920/](https://www.figma.com/team_invite/redeem/Ejdjv4RKPn68wmYmoD23Yf)  
-
+- **🎨 Figma Team** - [Design projects] https://www.figma.com/team_invite/redeem/tsdGVqTT3M8AZNIYwS1sY3
+- 
 ### **Practice & Reference**
 - **📖 Course Syllabus** - [Course policies and schedule](https://desn368-f25.netlify.app/syllabus/)  
   
