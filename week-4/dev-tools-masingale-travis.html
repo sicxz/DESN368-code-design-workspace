@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4: Developer Tools Practice - Box Model & Colors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .week-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        /* Progress Tracker */
+        .progress-container {
+            background: #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .progress-container h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Setup Instructions */
+        .setup-section {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #e17055;
+        }
+
+        .setup-section h2 {
+            color: #2d3436;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+
+        .workflow {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 2px solid #fdcb6e;
+        }
+
+        .workflow h3 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .workflow ol {
+            margin-left: 20px;
+        }
+
+        .workflow li {
+            margin-bottom: 10px;
+            color: #2d3436;
+        }
+
+        .workflow p {
+            color: #2d3436;
+        }
+
+        .important-note {
+            background-color: #fab1a0;
+            border-left: 5px solid #e17055;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .important-note strong {
+            color: #d63031;
+        }
+
+        .important-note p {
+            margin: 5px 0;
+            color: #2d3436;
+        }
+
+        /* Keyboard Shortcuts */
+        .keyboard-shortcut {
+            display: inline-block;
+            background: #2d3436;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            border: 2px solid #636e72;
+            margin: 0 3px;
+        }
+
+        /* Main Sections */
+        section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        section:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+        }
+
+        .section-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+
+        /* Exercise Boxes */
+        .exercise {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            position: relative;
+        }
+
+        .exercise h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            margin-top: 0;
+        }
+
+        .instruction {
+            background-color: #e7f3ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+
+        .instruction p {
+            margin: 5px 0;
+        }
+
+        .instruction strong {
+            color: #0056b3;
+        }
+
+        .instruction ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .instruction li {
+            margin-bottom: 8px;
+        }
+
+        .instruction ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        /* Demo Elements */
+        .demo-element {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Box Model Demos */
+        .box-model-demo {
+            background-color: lightblue;
+            padding: 20px;
+            border: 5px solid navy;
+            margin: 20px;
+            width: 300px;
+            border-radius: 8px;
+        }
+
+        .small-margin {
+            background-color: lightcoral;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .large-margin {
+            background-color: lightgreen;
+            margin: 40px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .padding-demo {
+            background-color: #ffd700;
+            border: 3px solid #ff8c00;
+            padding: 5px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .padding-demo-large {
+            background-color: #98fb98;
+            border: 3px solid #228b22;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        /* Color Demos */
+        .named-color {
+            background-color: tomato;
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .hex-color {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .rgb-color {
+            background-color: rgb(46, 204, 113);
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .hsl-color {
+            background-color: hsl(280, 70%, 60%);
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Answer Recording */
+        .answer-box {
+            background-color: white;
+            border: 2px dashed #667eea;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        .answer-box label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            margin-top: 12px;
+            color: #333;
+        }
+
+        .answer-box label:first-child {
+            margin-top: 0;
+        }
+
+        .answer-box input,
+        .answer-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 5px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .answer-box input:focus,
+        .answer-box textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .answer-box textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .check-answer-btn {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .check-answer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3);
+        }
+
+        .check-answer-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Hints */
+        .hint {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+
+        .hint strong {
+            color: #0c5460;
+        }
+
+        /* Key Concepts Box */
+        .key-concept {
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .key-concept h4 {
+            color: #155724;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .key-concept p {
+            margin: 5px 0;
+        }
+
+        .key-concept ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .key-concept li {
+            margin-bottom: 8px;
+        }
+
+        /* Code Display */
+        code {
+            background-color: #2d3436;
+            color: #55efc4;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+
+        /* Completion Badge */
+        .completed {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%) !important;
+            border-color: #28a745 !important;
+        }
+
+        .completion-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #28a745;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(40, 167, 69, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+
+            .box-model-demo {
+                width: 100%;
+            }
+
+            .large-margin {
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 Firefox Developer Tools Practice</h1>
+            <p class="subtitle">Box Model & Color Values</p>
+            <span class="week-badge">Week 4</span>
+        </header>
+
+        <!-- Firefox DevTools Information -->
+        <div class="setup-section" style="background: linear-gradient(135deg, #ff9500, #ff5e3a); border-left: 5px solid #cc3300;">
+            <h2 style="color: white;">🦊 About Firefox Developer Tools</h2>
+            <div class="important-note" style="background-color: rgba(255, 255, 255, 0.95); border-left: 5px solid #cc3300;">
+                <p><strong>This is a Firefox Developer Tools tutorial.</strong> While Chrome, Safari, and other browsers have developer tools, Firefox Developer Edition has the best tools for learning web development!</p>
+                <p style="margin-top: 10px;"><strong>📥 Download Firefox Developer Edition:</strong> <a href="https://www.firefox.com/en-US/firefox/developer/" target="_blank" style="color: #cc3300; font-weight: bold;">www.firefox.com/en-US/firefox/developer/</a></p>
+                <p style="margin-top: 10px;">Firefox Developer Edition is specifically designed for web developers and includes enhanced developer tools, experimental features, and better CSS debugging capabilities.</p>
+            </div>
+
+            <h3 style="color: white; margin-top: 20px;">📚 Essential Resources</h3>
+            <ul style="background-color: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 8px; margin-top: 10px;">
+                <li style="margin-bottom: 10px;"><a href="https://firefox-source-docs.mozilla.org/devtools-user/index.html" target="_blank" style="color: #cc3300; font-weight: bold;">Firefox Developer Tools Documentation</a></li>
+                <li style="margin-bottom: 10px;"><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools" target="_blank" style="color: #cc3300; font-weight: bold;">What Are Browser Developer Tools?</a></li>
+                <li style="margin-bottom: 10px;"><a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html" target="_blank" style="color: #cc3300; font-weight: bold;">How to Examine and Edit CSS</a></li>
+            </ul>
+        </div>
+
+        <!-- Progress Tracker -->
+        <div class="progress-container">
+            <h3>Your Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar">0%</div>
+            </div>
+            <p style="margin-top: 10px; color: #666;">Complete: <span id="completedTasks">0</span> / 11 tasks</p>
+            <p style="margin-top: 8px; color: #28a745; font-size: 0.9em;">💾 Your answers are auto-saved as you type!</p>
+        </div>
+
+        <!-- Setup Instructions -->
+        <div class="setup-section">
+            <h2>🚀 Getting Started: How to Use Firefox Developer Tools</h2>
+            
+            <div class="workflow">
+                <h3>Instructions for This Exercise</h3>
+                <ol>
+                    <li><strong>Make sure you're using Firefox Developer Edition</strong> (download link above if you haven't already!)</li>
+                    <li><strong>Download or save this HTML file</strong> to your computer</li>
+                    <li><strong>Open the file in Firefox Developer Edition</strong> by double-clicking it or dragging it into the browser window</li>
+                    <li><strong>Open Firefox Developer Tools</strong> using one of these methods:
+                        <ul>
+                            <li>Right-click on any element and choose <strong>"Inspect Element"</strong></li>
+                            <li><strong>Windows/Linux:</strong> Press <span class="keyboard-shortcut">F12</span> or <span class="keyboard-shortcut">Ctrl+Shift+I</span></li>
+                            <li><strong>Mac:</strong> Press <span class="keyboard-shortcut">Fn+F12</span> or <span class="keyboard-shortcut">Cmd+Option+I</span></li>
+                        </ul>
+                    </li>
+                    <li>The Developer Tools panel will open - you can dock it to the side or bottom of your screen</li>
+                    <li>Click on the <strong>"Inspector"</strong> tab to view HTML and CSS</li>
+                    <li>You can now examine and edit CSS properties in real-time!</li>
+                </ol>
+                
+                <p style="margin-top: 15px;"><strong>💡 Tip:</strong> Keep this file open in Firefox Developer Edition and refer back to it as you work through each exercise. Fill in the answer boxes as you go!</p>
+            </div>
+
+            <div class="key-concept">
+                <h4>💡 What You'll Learn Today:</h4>
+                <ul>
+                    <li><strong>The Box Model:</strong> How margin, padding, and borders work together</li>
+                    <li><strong>Color Values:</strong> Named colors, hex codes, RGB, and HSL</li>
+                    <li><strong>Firefox Developer Tools:</strong> How to inspect and understand CSS properties using the best tools for web development</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Part 1: The Box Model -->
+        <section>
+            <h2><span class="section-number">1</span> Understanding the Box Model</h2>
+
+            <div class="key-concept">
+                <h4>What is the Box Model?</h4>
+                <p>Every HTML element is a box made up of four parts:</p>
+                <ul>
+                    <li><strong>Content:</strong> The actual text or images inside</li>
+                    <li><strong>Padding:</strong> Space between the content and the border (inside)</li>
+                    <li><strong>Border:</strong> The line around the padding</li>
+                    <li><strong>Margin:</strong> Space outside the border (pushes other elements away)</li>
+                </ul>
+            </div>
+
+            <!-- Exercise 1: Finding Border Properties -->
+            <div class="exercise" data-task="1">
+                <h3>Exercise 1: Inspect Border Properties</h3>
+                
+                <div class="instruction">
+                    <p><strong>Your Task:</strong> Inspect the box below and find its border properties.</p>
+                    <ol>
+                        <li>Right-click on the blue box below</li>
+                        <li>Select "Inspect" from the menu</li>
+                        <li>Look in the Styles/Rules panel on the right</li>
+                        <li>Find the <code>.box-model-demo</code> class</li>
+                        <li>Look for the <code>border</code> property</li>
+                    </ol>
+                </div>
+
+                <div class="box-model-demo">
+                    This is my content! The blue area is my background. The dark blue line around me is my border. The space between this text and the border is padding. The space outside the border pushing other elements away is margin.
+                </div>
+
+                <div class="answer-box">
+                    <label>Border Width (how thick is it?):</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>Border Style (what type of line?):</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>Border Color (what color is it?):</label>
+                    <input type="text" placeholder="Your answer">
+
+                    <button class="check-answer-btn" onclick="checkTask(1)">Check Answer</button>
+                </div>
+
+                <div class="hint">
+                    <strong>💡 Hint:</strong> Look for <code>border: 5px solid navy;</code> in the <code>.box-model-demo</code> class. This is shorthand for width, style, and color all in one line!
+                </div>
+            </div>
+
+            <!-- Exercise 2: Understanding Padding -->
+            <div class="exercise" data-task="2">
+                <h3>Exercise 2: Measuring Padding</h3>
+                
+                <div class="instruction">
+                    <p><strong>Your Task:</strong> Compare these two boxes to see how padding affects spacing.</p>
+                    <ol>
+                        <li>Inspect the yellow box (it has the class <code>padding-demo</code>)</li>
+                        <li>Find the <code>padding</code> property in the Styles panel</li>
+                        <li>Now inspect the green box (class <code>padding-demo-large</code>)</li>
+                        <li>Compare their padding values</li>
+                    </ol>
+                </div>
+
+                <div class="padding-demo">
+                    Small Padding Box - Notice how close the text is to the border!
+                </div>
+
+                <div class="padding-demo-large">
+                    Large Padding Box - Lots of space between the text and the border!
+                </div>
+
+                <div class="answer-box">
+                    <label>Small padding box value:</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>Large padding box value:</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>In your own words: What does padding do?</label>
+                    <textarea placeholder="Explain what padding does"></textarea>
+
+                    <button class="check-answer-btn" onclick="checkTask(2)">Check Answer</button>
+                </div>
+
+                <div class="hint">
+                    <strong>💡 Hint:</strong> Padding pushes the border AWAY from the content. More padding = more space inside the box!
+                </div>
+            </div>
+
+            <!-- Exercise 3: Understanding Margin -->
+            <div class="exercise" data-task="3">
+                <h3>Exercise 3: Exploring Margin</h3>
+                
+                <div class="instruction">
+                    <p><strong>Your Task:</strong> See how margin creates space BETWEEN elements.</p>
+                    <ol>
+                        <li>Inspect the red box (class <code>small-margin</code>)</li>
+                        <li>Find its <code>margin</code> value</li>
+                        <li>Inspect the green box (class <code>large-margin</code>)</li>
+                        <li>Compare the space around each box</li>
+                    </ol>
+                </div>
+
+                <div class="small-margin">
+                    Small Margin Box - I'm close to other elements!
+                </div>
+
+                <div class="large-margin">
+                    Large Margin Box - I have lots of space around me!
+                </div>
+
+                <div class="answer-box">
+                    <label>Small margin value:</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>Large margin value:</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>In your own words: What's the difference between margin and padding?</label>
+                    <textarea placeholder="Explain what margin does"></textarea>
+
+                    <button class="check-answer-btn" onclick="checkTask(3)">Check Answer</button>
+                </div>
+
+                <div class="hint">
+                    <strong>💡 Hint:</strong> Margin is OUTSIDE the border and pushes other elements away. Padding is INSIDE the border and pushes content away from the border.
+                </div>
+            </div>
+
+            <!-- Exercise 4: The Box Model Diagram -->
+            <div class="exercise" data-task="4">
+                <h3>Exercise 4: Using the Box Model Diagram</h3>
+                
+                <div class="instruction">
+                    <p><strong>Your Task:</strong> Find the visual box model diagram in Developer Tools.</p>
+                    <ol>
+                        <li>Inspect the blue box from Exercise 1</li>
+                        <li>In Firefox: Scroll down in the Inspector panel to find the "Box Model" section</li>
+                        <li>In Chrome: Click on the "Computed" tab, then scroll down to see the box diagram</li>
+                        <li>The diagram shows all four layers: content, padding, border, and margin</li>
+                    </ol>
+                </div>
+
+                <div class="box-model-demo">
+                    Inspect me and find the Box Model diagram!
+                </div>
+
+                <div class="answer-box">
+                    <label>Content width (from the diagram):</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>Padding value (all sides):</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>Border value (all sides):</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>Margin value (all sides):</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>Describe the box model diagram you see:</label>
+                    <textarea placeholder="Describe what you see in the diagram"></textarea>
+
+                    <button class="check-answer-btn" onclick="checkTask(4)">Check Answer</button>
+                </div>
+
+                <div class="hint">
+                    <strong>💡 Hint:</strong> The box model diagram looks like nested boxes. The innermost box is the content, then padding (green), then border (yellow/orange), then margin (orange/brown).
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 2: Color Values -->
+        <section>
+            <h2><span class="section-number">2</span> Understanding Color Values</h2>
+
+            <div class="key-concept">
+                <h4>Four Ways to Define Colors in CSS:</h4>
+                <ul>
+                    <li><strong>Named Colors:</strong> Simple names like <code>red</code>, <code>blue</code>, <code>tomato</code></li>
+                    <li><strong>Hex Codes:</strong> Six-digit codes like <code>#4a90e2</code> (common in design)</li>
+                    <li><strong>RGB:</strong> Red, Green, Blue values like <code>rgb(46, 204, 113)</code></li>
+                    <li><strong>HSL:</strong> Hue, Saturation, Lightness like <code>hsl(280, 70%, 60%)</code></li>
+                </ul>
+            </div>
+
+            <!-- Exercise 5: Named Colors -->
+            <div class="exercise" data-task="5">
+                <h3>Exercise 5: Named Colors</h3>
+                
+                <div class="instruction">
+                    <p><strong>Your Task:</strong> Inspect this box to see how named colors work.</p>
+                    <ol>
+                        <li>Right-click on the red box below</li>
+                        <li>Select "Inspect"</li>
+                        <li>Find the <code>.named-color</code> class in the Styles panel</li>
+                        <li>Look at the <code>background-color</code> property</li>
+                    </ol>
+                </div>
+
+                <div class="named-color">
+                    This box uses a named color: "tomato"
+                </div>
+
+                <div class="answer-box">
+                    <label>What named color is used for the background?</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>What named color is used for the text?</label>
+                    <input type="text" placeholder="Your answer">
+
+                    <button class="check-answer-btn" onclick="checkTask(5)">Check Answer</button>
+                </div>
+
+                <div class="hint">
+                    <strong>💡 Hint:</strong> Named colors are the simplest! There are 140+ named colors in CSS like <code>tomato</code>, <code>cornflowerblue</code>, <code>salmon</code>, etc.
+                </div>
+            </div>
+
+            <!-- Exercise 6: Hex Colors -->
+            <div class="exercise" data-task="6">
+                <h3>Exercise 6: Hexadecimal (Hex) Colors</h3>
+                
+                <div class="instruction">
+                    <p><strong>Your Task:</strong> Learn how hex color codes work.</p>
+                    <ol>
+                        <li>Inspect the blue box (class <code>hex-color</code>)</li>
+                        <li>Find the <code>background-color</code> value</li>
+                        <li>Notice it starts with a # symbol</li>
+                        <li>Hex codes are 6 characters: #RRGGBB (Red, Green, Blue)</li>
+                    </ol>
+                </div>
+
+                <div class="hex-color">
+                    This box uses a hex color: #4a90e2
+                </div>
+
+                <div class="answer-box">
+                    <label>What is the hex color code for the background?</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>Try clicking on the color in Dev Tools. What happens?</label>
+                    <textarea placeholder="Describe what you see"></textarea>
+
+                    <button class="check-answer-btn" onclick="checkTask(6)">Check Answer</button>
+                </div>
+
+                <div class="hint">
+                    <strong>💡 Hint:</strong> In Developer Tools, you can click on any color value to open a color picker! This lets you see the color in different formats (hex, RGB, HSL).
+                </div>
+            </div>
+
+            <!-- Exercise 7: RGB Colors -->
+            <div class="exercise" data-task="7">
+                <h3>Exercise 7: RGB Color Values</h3>
+                
+                <div class="instruction">
+                    <p><strong>Your Task:</strong> Understand RGB color notation.</p>
+                    <ol>
+                        <li>Inspect the green box (class <code>rgb-color</code>)</li>
+                        <li>Find the <code>background-color</code> using <code>rgb()</code></li>
+                        <li>The three numbers represent Red, Green, and Blue</li>
+                        <li>Each number can be from 0 to 255</li>
+                    </ol>
+                </div>
+
+                <div class="rgb-color">
+                    This box uses RGB: rgb(46, 204, 113)
+                </div>
+
+                <div class="answer-box">
+                    <label>What is the RED value (first number)?</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>What is the GREEN value (second number)?</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>What is the BLUE value (third number)?</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>Why do you think this makes a green color?</label>
+                    <textarea placeholder="What did you notice?"></textarea>
+
+                    <button class="check-answer-btn" onclick="checkTask(7)">Check Answer</button>
+                </div>
+
+                <div class="hint">
+                    <strong>💡 Hint:</strong> <code>rgb(0, 0, 0)</code> is black, <code>rgb(255, 255, 255)</code> is white. The higher the number, the more of that color!
+                </div>
+            </div>
+
+            <!-- Exercise 8: HSL Colors -->
+            <div class="exercise" data-task="8">
+                <h3>Exercise 8: HSL Color Values</h3>
+                
+                <div class="instruction">
+                    <p><strong>Your Task:</strong> Learn about HSL (Hue, Saturation, Lightness).</p>
+                    <ol>
+                        <li>Inspect the purple box (class <code>hsl-color</code>)</li>
+                        <li>Find the <code>hsl()</code> color value</li>
+                        <li>First number (0-360): Hue (the actual color on the color wheel)</li>
+                        <li>Second number (0-100%): Saturation (how vivid the color is)</li>
+                        <li>Third number (0-100%): Lightness (how bright or dark)</li>
+                    </ol>
+                </div>
+
+                <div class="hsl-color">
+                    This box uses HSL: hsl(280, 70%, 60%)
+                </div>
+
+                <div class="answer-box">
+                    <label>What is the HUE value (first number)?</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>What is the SATURATION value?</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>What is the LIGHTNESS value?</label>
+                    <input type="text" placeholder="Your answer">
+
+                    <button class="check-answer-btn" onclick="checkTask(8)">Check Answer</button>
+                </div>
+
+                <div class="hint">
+                    <strong>💡 Hint:</strong> Hue 0 or 360 is red, 120 is green, 240 is blue. Saturation at 0% is gray, 100% is most vivid. Lightness at 0% is black, 100% is white, 50% is the "true" color.
+                </div>
+            </div>
+
+            <!-- Exercise 9: Converting Between Color Formats -->
+            <div class="exercise" data-task="9">
+                <h3>Exercise 9: Converting Color Formats (Switch to Chrome!)</h3>
+                
+                <div class="important-note" style="background-color: #e3f2fd; border-left: 5px solid #2196f3;">
+                    <strong>🔄 Time to Switch Browsers!</strong>
+                    <p>This exercise works best in Chrome/Edge. Firefox DevTools don't have the color format cycling feature.</p>
+                    <p><strong>What to do:</strong></p>
+                    <ol style="margin-top: 10px;">
+                        <li>Your answers are auto-saved, so don't worry!</li>
+                        <li>Open <strong>this same file</strong> in <strong>Chrome</strong> or <strong>Edge</strong></li>
+                        <li>Complete Exercise 9 and the remaining exercises in Chrome</li>
+                        <li>Your progress will still be saved!</li>
+                    </ol>
+                </div>
+
+                <div class="instruction">
+                    <p><strong>Your Task (in Chrome/Edge):</strong> See how the same color can be written different ways.</p>
+                    <ol>
+                        <li>Open this file in <strong>Chrome</strong> (your answers will load automatically!)</li>
+                        <li>Right-click and <strong>Inspect</strong> the colored box below</li>
+                        <li>In the <strong>Styles panel</strong>, find the <code>background-color</code> property</li>
+                        <li>Click on the small <strong>color square</strong> next to the color value</li>
+                        <li>A color picker will open</li>
+                        <li><strong>Shift+Click</strong> on the color value at the top to cycle through formats: RGB → HEX → HSL → Named!</li>
+                        <li>Watch how the same color can be written multiple ways</li>
+                    </ol>
+                </div>
+
+                <div class="demo-element" style="background-color: rgb(255, 99, 71); color: white; padding: 20px;">
+                    This box is the color rgb(255, 99, 71). Can you find other ways to write this same color?
+                </div>
+
+                <div class="answer-box">
+                    <label>RGB format:</label>
+                    <input type="text" placeholder="RGB value">
+                    
+                    <label>Hex format (use the color picker!):</label>
+                    <input type="text" placeholder="Hex code">
+                    
+                    <label>Named color (if there is one):</label>
+                    <input type="text" placeholder="Named color">
+                    
+                    <label>What did you discover about color formats?</label>
+                    <textarea placeholder="What did you learn about color formats?"></textarea>
+
+                    <button class="check-answer-btn" onclick="checkTask(9)">Check Answer</button>
+                </div>
+
+                <div class="hint">
+                    <strong>💡 Hint:</strong> rgb(255, 99, 71) = #ff6347 = tomato! They're all the same color, just written differently. Use Shift+Click in Chrome to cycle through all the formats!
+                </div>
+            </div>
+        </section>
+
+        <!-- Bonus Challenge -->
+        <section style="background-color: #fff3e0; border-color: #ff9800;">
+            <h2><span class="section-number">🌟</span> Bonus Challenge: Edit CSS Live! (Continue in Chrome)</h2>
+
+            <div class="exercise" data-task="10">
+                <h3>Challenge: Change This Box Using Dev Tools</h3>
+                
+                <div class="instruction">
+                    <p><strong>Your Task:</strong> Use Chrome Developer Tools to change this box's appearance.</p>
+                    <ol>
+                        <li>Inspect the box below (it has an id of <code>challenge-box</code>)</li>
+                        <li>In the Styles panel, find the inline styles</li>
+                        <li>Click on any property value to edit it</li>
+                        <li>Try changing:
+                            <ul>
+                                <li>The background-color to your favorite color</li>
+                                <li>The padding to make it bigger or smaller</li>
+                                <li>The border to a different width or color</li>
+                                <li>The margin to move it around</li>
+                            </ul>
+                        </li>
+                        <li>Watch the box change in real-time!</li>
+                    </ol>
+                </div>
+
+                <div id="challenge-box" style="background-color: lightgray; padding: 20px; border: 3px solid gray; margin: 20px;">
+                    Edit my CSS properties using Developer Tools!
+                </div>
+
+                <div class="answer-box">
+                    <label>What background color did you choose?</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>What padding value did you try?</label>
+                    <input type="text" placeholder="Your answer">
+                    
+                    <label>What was cool or surprising about editing CSS live?</label>
+                    <textarea placeholder="Your reflection"></textarea>
+
+                    <button class="check-answer-btn" onclick="checkTask(10)">Check Answer</button>
+                </div>
+
+                <div class="important-note">
+                    <strong>⚠️ Remember:</strong> Changes made in Developer Tools are temporary! They only last until you refresh the page. To make permanent changes, you need to edit your actual CSS file.
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflection -->
+        <section style="background-color: #e8f5e9; border-color: #4caf50;">
+            <h2><span class="section-number">📝</span> Reflection Questions</h2>
+            
+            <div class="exercise" data-task="11">
+                <h3>Think About What You Learned</h3>
+                <div class="answer-box">
+                    <label>1. In your own words, explain the box model:</label>
+                    <textarea placeholder="Your explanation"></textarea>
+                    
+                    <label>2. What's your favorite way to write colors? Why?</label>
+                    <textarea placeholder="Your preference and why"></textarea>
+                    
+                    <label>3. How do you think Developer Tools will help you as you learn web design?</label>
+                    <textarea placeholder="How will DevTools help you?"></textarea>
+                    
+                    <label>4. What questions do you still have?</label>
+                    <textarea placeholder="Your questions"></textarea>
+
+                    <button class="check-answer-btn" onclick="checkTask(11)">Check Answer</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Completion Certificate -->
+        <section id="completion-certificate" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none; color: white; display: none;">
+            <div style="text-align: center; padding: 20px;">
+                <h2 style="color: white; font-size: 2.5em; margin-bottom: 20px;">🎓 Certificate of Completion</h2>
+                <p style="font-size: 1.3em; margin-bottom: 30px;">Firefox Developer Tools Practice - Week 4</p>
+                
+                <div style="background: rgba(255,255,255,0.95); color: #333; padding: 30px; border-radius: 15px; margin: 20px 0;">
+                    <h3 style="color: #667eea; margin-top: 0;">Student Progress Summary</h3>
+                    
+                    <div style="margin: 30px 0;">
+                        <div style="background: #f0f0f0; border-radius: 15px; padding: 15px; margin-bottom: 20px;">
+                            <h4 style="color: #333; margin-top: 0;">Progress</h4>
+                            <div class="progress-bar" style="background: #e0e0e0;">
+                                <div class="progress-fill" id="finalProgressBar" style="background: linear-gradient(90deg, #667eea, #764ba2);">100%</div>
+                            </div>
+                            <p style="margin-top: 10px; font-size: 1.2em; font-weight: bold; color: #28a745;">
+                                <span id="finalCompletedTasks">11</span> / 11 Tasks Completed ✓
+                            </p>
+                        </div>
+
+                        <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+                            <h4 style="color: #667eea; margin-bottom: 15px;">Skills Mastered:</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 10px; margin: 5px 0; background: #e8f5e9; border-radius: 8px; border-left: 4px solid #28a745;">✓ Understanding the CSS Box Model</li>
+                                <li style="padding: 10px; margin: 5px 0; background: #e8f5e9; border-radius: 8px; border-left: 4px solid #28a745;">✓ Inspecting Border, Padding, and Margin</li>
+                                <li style="padding: 10px; margin: 5px 0; background: #e8f5e9; border-radius: 8px; border-left: 4px solid #28a745;">✓ Working with Color Formats (Named, Hex, RGB, HSL)</li>
+                                <li style="padding: 10px; margin: 5px 0; background: #e8f5e9; border-radius: 8px; border-left: 4px solid #28a745;">✓ Using Firefox Developer Tools Inspector</li>
+                                <li style="padding: 10px; margin: 5px 0; background: #e8f5e9; border-radius: 8px; border-left: 4px solid #28a745;">✓ Live CSS Editing and Experimentation</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px; border: 2px dashed #ffc107;">
+                            <p style="color: #856404; font-size: 1.1em; margin: 0;">
+                                <strong>📸 For Submission:</strong> Take a screenshot of this completion certificate and submit it for your grade!
+                            </p>
+                        </div>
+
+                        <div style="margin-top: 20px; font-size: 0.9em; color: #666;">
+                            <p style="margin: 5px 0;">Date Completed: <span id="completionDate"></span></p>
+                            <p style="margin: 5px 0;">Course: DESN368 Web Design 1 - Week 4</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <h2>🎉 Congratulations!</h2>
+            <p>You're mastering Browser Developer Tools!</p>
+            <p>Keep practicing and exploring. The more you use DevTools, the better you'll become at web development!</p>
+        </footer>
+    </div>
+
+    <script>
+        let completedTasks = 0;
+        const totalTasks = 11;
+
+        function checkTask(taskNumber) {
+            const task = document.querySelector(`[data-task="${taskNumber}"]`);
+            const inputs = task.querySelectorAll('.answer-box input, .answer-box textarea');
+            let allFilled = true;
+
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    allFilled = false;
+                }
+            });
+
+            if (allFilled && !task.classList.contains('completed')) {
+                task.classList.add('completed');
+                
+                // Add completion badge
+                const badge = document.createElement('div');
+                badge.className = 'completion-badge';
+                badge.textContent = '✓ Completed';
+                task.appendChild(badge);
+
+                completedTasks++;
+                updateProgress();
+
+                // Disable the check button
+                const button = task.querySelector('.check-answer-btn');
+                button.textContent = '✓ Task Complete';
+                button.style.background = '#28a745';
+                button.disabled = true;
+            } else if (!allFilled) {
+                alert('Please fill in all answer fields before checking! Every question needs an answer.');
+            }
+        }
+
+        function updateProgress() {
+            const percentage = (completedTasks / totalTasks) * 100;
+            const progressBar = document.getElementById('progressBar');
+            const completedTasksSpan = document.getElementById('completedTasks');
+
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = Math.round(percentage) + '%';
+            completedTasksSpan.textContent = completedTasks;
+
+            if (completedTasks === totalTasks) {
+                setTimeout(() => {
+                    // Show completion certificate
+                    const certificate = document.getElementById('completion-certificate');
+                    certificate.style.display = 'block';
+                    
+                    // Update final progress in certificate
+                    const finalProgressBar = document.getElementById('finalProgressBar');
+                    const finalCompletedTasks = document.getElementById('finalCompletedTasks');
+                    finalProgressBar.style.width = '100%';
+                    finalProgressBar.textContent = '100%';
+                    finalCompletedTasks.textContent = completedTasks;
+                    
+                    // Set completion date
+                    const completionDate = document.getElementById('completionDate');
+                    const today = new Date();
+                    completionDate.textContent = today.toLocaleDateString('en-US', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    });
+                    
+                    // Scroll to certificate
+                    certificate.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    alert('🎉 Congratulations! You\'ve completed all tasks! Scroll down to see your completion certificate and take a screenshot for submission!');
+                }, 500);
+            }
+        }
+
+        // Add keyboard shortcuts info
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('%c🔧 Welcome to Developer Tools Practice!', 'font-size: 20px; color: #667eea; font-weight: bold;');
+            console.log('%cKeyboard Shortcuts:', 'font-size: 14px; font-weight: bold;');
+            console.log('Windows/Linux:');
+            console.log('  F12 or Ctrl+Shift+I - Open DevTools');
+            console.log('  Ctrl+Shift+C - Inspect Element');
+            console.log('Mac:');
+            console.log('  Fn+F12 or Cmd+Option+I - Open DevTools');
+            console.log('  Cmd+Option+C - Inspect Element');
+        });
+
+        // LocalStorage: Save answers as user types
+        function saveToLocalStorage() {
+            const allInputs = document.querySelectorAll('input[type="text"], textarea');
+            const answers = {};
+            
+            allInputs.forEach((input, index) => {
+                answers[`answer_${index}`] = input.value;
+            });
+            
+            localStorage.setItem('week4_devtools_answers', JSON.stringify(answers));
+        }
+
+        // Load saved answers on page load
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('week4_devtools_answers');
+            
+            if (saved) {
+                const answers = JSON.parse(saved);
+                const allInputs = document.querySelectorAll('input[type="text"], textarea');
+                
+                allInputs.forEach((input, index) => {
+                    if (answers[`answer_${index}`]) {
+                        input.value = answers[`answer_${index}`];
+                    }
+                });
+                
+                console.log('%c📥 Your previous answers have been loaded!', 'font-size: 14px; color: #28a745; font-weight: bold;');
+            }
+        }
+
+        // Auto-save when user types
+        document.addEventListener('input', function(e) {
+            if (e.target.matches('input[type="text"], textarea')) {
+                saveToLocalStorage();
+            }
+        });
+
+        // Load answers when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFromLocalStorage();
+        });
+    </script>
+</body>
+</html>
